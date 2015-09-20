@@ -9,7 +9,17 @@ app.get('/', function(req, res){
   var asyncTasks = [];
 
   // Add request functions for each url to asyncTask list
-
+  urls.forEach(function(url){
+    asyncTasks.push(
+      function(cb){
+        request('http://'+url, function(err, resp, body){
+          if (err){ console.log('ERROR: ', err); }
+          results.push(resp.socket._host);
+          cb();
+        });
+      }
+    )
+  });
   // After all asyncTasks are complete, return result order
 })
 
