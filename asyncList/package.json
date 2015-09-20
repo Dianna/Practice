@@ -1,0 +1,16 @@
+{
+  "name": "asyncList",
+  "version": "1.0.0",
+  "description": "Write a program that makes asynchronous calls to a list of websites and returns the order in which responses are received",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^1.4.2",
+    "express": "^4.13.3",
+    "request": "^2.62.0"
+  }
+}
