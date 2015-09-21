@@ -1,25 +1,22 @@
 # Convert JS mergeSort to Python
-# Arrays
-#   mergeSort([5,4,2,6,8,0], function(a, b){ return a > b; });
-#   // [8,6,5,4,2,0]
+#   arr = [{'thing': 'a', 'order': 3}, {'thing': 'a', 'order': 1}, {'thing': 'a', 'order': 2}]
+#   def rule(a, b):
+#       return a['order'] < b['order']
 
 # Objects
-#   var arr = [
-#     {'thing': 'a', 'order': 3},
-#     {'thing': 'a', 'order': 1},
-#     {'thing': 'a', 'order': 2}
-#   ]
-#   mergeSort(arr, function(a, b){ return a['order'] < b['order'] });
+#   arr = [{'thing': 'a', 'order': 3}, {'thing': 'a', 'order': 1}, {'thing': 'a', 'order': 2}]
+#   def rule(a, b):
+#       return a['order'] < b['order']
 
-var mergeSort = function(collection, rule){
-  if (collection.length <= 1){
-    return collection;
-  }
-  var middle = Math.floor(collection.length / 2);
-  var left = collection.slice(0, middle);
-  var right = collection.slice(middle, collection.length);
-  return merge(mergeSort(left, rule), mergeSort(right, rule), rule);
-}
+import math
+
+def mergeSort(collection, rule):
+    if len(collection) <= 1:
+      return collection
+    middle = math.floor(len(collection) / 2)
+    left = collection[0: middle]
+    right = collection[middle: len(collection)]
+    return merge(mergeSort(left, rule), mergeSort(right, rule), rule)
 
 def merge(item1, item2, rule):
     result = []
