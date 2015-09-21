@@ -13,4 +13,14 @@ Objects
   mergeSort(arr, function(a, b){ return a[order] < b[order] });
 */
 
-var mergeSort = function(collection, rule){}
+var mergeSort = function(collection, rule){
+
+}
+
+var merge = function(item1, item2, rule){
+  if (rule(item1, item2)){
+    return [item1, item2];
+  } else {
+    return [item2, item1];
+  }
+}
