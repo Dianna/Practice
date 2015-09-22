@@ -12,6 +12,36 @@ Tree.prototype.addChild = function(value){
   return child;
 };
 
+
+var Queue = function(){
+  var storage = [];
+  this.push = function(item){
+    storage.push(item);
+  }
+  this.pop = function(){
+    return storage.shift();
+  }
+};
+
+Tree.prototype.bFSelect = function(filter){
+  var queue = new Queue();
+  var results = [], item;
+  queue.push({tree: this, depth: 0});
+
+  while (item = queue.pop()){
+    var tree = item.tree;
+    var depth = item.depth;
+    if (filter(tree.value, depth)){
+      results.push(tree.value);
+    }
+    for (var i=0; i<tree.children.length; i++){
+      var child = {tree: tree.children[i], depth: depth+1}
+      queue.push(child);
+    }
+  }
+  return results;
+}
+
 var root = new Tree(1),
 branch1 = root.addChild(2),
 branch2 = root.addChild(3),
